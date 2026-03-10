@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using Unity.VisualScripting;
 
 public class FadeControl : MonoBehaviour
 {
@@ -21,6 +22,16 @@ public class FadeControl : MonoBehaviour
         }
 
         originalColor = fadeObject.color;
+    }
+
+    public void FadeIn()
+    {
+        StartFade(originalColor.a);
+    }
+
+    public void FadeOut()
+    {
+        StartFade(0f);
     }
 
     private void StartFade(float targetAlpha)

@@ -2,12 +2,12 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Selector : MonoBehaviour
 {
     public Color normalColor = Color.white;
     public Color selectColor = Color.yellow;
-
     public TMP_Text[] items; // Meidän napit listassa
     public Color[] colors;
     private int index = 0;
@@ -32,6 +32,16 @@ public class Selector : MonoBehaviour
             index = (index + 1) % items.Length;
             ChangeColors();
         }
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+            ActivateItem(index);
+        }
+    }
+
+    public void ActivateItem(int i)
+    {
+        Debug.Log("Painoit nappia: " + items[i].text);
     }
 
     void ChangeColors()

@@ -10,18 +10,12 @@ IPointerClickHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Entered");
+        selector.SetIndex(index);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Clicked");
         selector.ActivateItem(index);
-    }
-
-    public void A()
-    {
-        Debug.Log("Test");
     }
 
 }
